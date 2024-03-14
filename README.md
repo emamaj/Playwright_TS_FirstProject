@@ -38,4 +38,5 @@ https://jaktestowac.pl/lesson/pw1s01l01/
     ```
 
 ## Visual Studio Code
-- Preview: for README.md 
+- Preview: for README.md
+- Autosave: in File -> Auto Save 
