@@ -1,34 +1,31 @@
-# Test Automation training form jaktestowac.pl
-
+# Test Automation training from jaktestowac.pl
 
 ## Links
 - course https://jaktestowac.pl/course/playwright-wprowadzenie/
-- test site
-https://demo-bank.vercel.app/  
-If link broken check first lesson for update:
-https://jaktestowac.pl/lesson/pw1s01l01/
-- code repository: https://github.com/jaktestowac/playwright_automatyzacja_wprowadzenie
-
+- test site https://demo-bank.vercel.app/  
+if link is broken check https://jaktestowac.pl/lesson/pw1s01l01/
+- code repository https://github.com/jaktestowac/playwright_automatyzacja_wprowadzenie
 
 ## Commands
-- check `NodeJS` version    
+- check `NodeJS` version  
 `node -v`
-- new project with Playwright:  
+- new project with Playwright  
 `npm init playwright@latest`
 - record tests for given site  
 `npx playwright codegen https://demo-bank.vercel.app/`
-- run tests without browser GUI:  
+- run tests without browser GUI  
 `npx playwright test`
-- run test with browser GUI:  
+- run tests with browser GUI  
 `npx playwright test --headed`
-- viewing report  
+- view report  
 `npx playwright show-report`
-
+- cancelling Node process  
+hit twice <kbd>Ctrl</kbd> + <kbd>C</kbd>
 
 ## Playwright Config modifications
 - config file `playwright.config.ts`
-- disabling browsers, i.e. Firefox:
-    ```json
+- disable browsers, i.e. Firefox  
+    ```javascript
     // {
     //   name: 'firefox',
     //   use: {
@@ -39,4 +36,22 @@ https://jaktestowac.pl/lesson/pw1s01l01/
 
 ## Visual Studio Code
 - Preview: for README.md
-- Autosave: in File -> Auto Save 
+- Autosave: in File -> Auto Save
+- Timeline: file context menu -> Open Timeline
+- Formatting: editor -> context menu -> Format Document
+
+## Playwright snippets
+- test:
+    ```javascript
+    test('test description', async ({ page }) => {
+    
+    });
+    ```
+- describe:
+    ```javascript
+    //obiekt test dodany poniżej
+     test.describe('Group description', () => {
+
+     });
+    ```
+- running one test: `test.only`
