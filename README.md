@@ -23,6 +23,8 @@
   `npx playwright show-report`
 - cancelling Node process  
   hit twice <kbd>Ctrl</kbd> + <kbd>C</kbd>
+- run Trace Viewer in zip file
+  `npx playwright show-trace trace.zip`
 
 ## Playwright Config modifications
 
