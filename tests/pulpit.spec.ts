@@ -13,10 +13,6 @@ test.describe('Pulpit tests', () => {
     await loginPage.loginInput.fill(userID)
     await loginPage.passwordInput.fill(userPassword)
     await loginPage.loginButton.click()
-   
-    // await page.getByTestId('login-input').fill(userID);
-    // await page.getByTestId('password-input').fill(userPassword);
-    // await page.getByTestId('login-button').click();
   })
 
   test('Quick payment with correct data', async ({ page }) => {
