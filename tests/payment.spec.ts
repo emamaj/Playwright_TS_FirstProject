@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
 import { PaymentPage } from '../pages/payment.page';
+import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Payment tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -13,6 +14,9 @@ test.describe('Payment tests', () => {
     await loginPage.loginInput.fill(userID);
     await loginPage.passwordInput.fill(userPassword);
     await loginPage.loginButton.click();
+
+    const pulpitPage = new PulpitPage(page)
+    await pulpitPage.sideMenu.paymentButton.click();
   });
 
   test('simple payment', async ({ page }) => {
@@ -24,7 +28,6 @@ test.describe('Payment tests', () => {
 
     //Act
     const paymentPage = new PaymentPage(page);
-    await paymentPage.paymentButton.click();
     await paymentPage.paymentTransferReceiver.fill(transferReceiver);
     await paymentPage.paymentAcceptForm.fill(accountNumber);
     await paymentPage.paymentFormAmount.fill(transferAmount);
