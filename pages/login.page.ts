@@ -15,4 +15,10 @@ export class LoginPage {
     await this.passwordInput.fill(userPassword);
     await this.loginButton.click();
   }
+
+  async incorrectLogin(userID: string, userPassword: string): Promise<void> {
+    await this.loginInput.fill(userID);
+    await this.passwordInput.fill(userPassword);
+    await this.passwordInput.blur();
+  }
 }
