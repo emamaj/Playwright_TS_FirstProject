@@ -25,4 +25,28 @@ export class PulpitPage {
   pulpitMoneyValueMessage = this.page.locator('#money_value');
 
   pulpitUserName = this.page.getByTestId('user-name');
+
+  async properPayment(receiverID: string, transferAmount: string, transferTitle: string) {
+    await this.pulpitReceiverId.selectOption(receiverID);
+    await this.pulpitTransferAmount.fill(transferAmount);
+    await this.pulpitTransferTitle.fill(transferTitle);
+    await this.pulpitClickAcceptButton.click();
+    await this.pulpitClickCloseButton.click();
+  }
+
+  async paymentTopup(topUpReceiver: string, topUpAmount: string) {
+    await this.pulpitTopUpReceiver.selectOption(topUpReceiver);
+    await this.pulpitTopUpAmount.fill(topUpAmount);
+    await this.pulpitTopUpAgreement.click();
+    await this.pulpitTopUpClickButton.click();
+    await this.pulpitCloseUpButton.click();
+  }
+
+  async correctBalance(topUpReceiver:string, topUpAmount: string) {
+    await this.pulpitTopUpReceiver.selectOption(topUpReceiver);
+    await this.pulpitTopUpAmount.fill(topUpAmount);
+    await this.pulpitTopUpAgreement.click();
+    await this.pulpitTopUpClickButton.click();
+    await this.pulpitCloseUpButton.click();
+  }
 }
