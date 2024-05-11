@@ -25,6 +25,8 @@
   hit twice <kbd>Ctrl</kbd> + <kbd>C</kbd>
 - run Trace Viewer in zip file
   `npx playwright show-trace trace.zip`
+- run test with special @tags
+  `npx playwright test --grep "@login"`
 
 ## Playwright Config modifications
 

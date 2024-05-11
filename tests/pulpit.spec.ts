@@ -17,7 +17,9 @@ test.describe('Pulpit tests', () => {
     pulpitPage = new PulpitPage(page);
   });
 
-  test('Quick payment with correct data', async ({ page }) => {
+  test('Quick payment with correct data @pulpit @integration', async ({
+    page,
+  }) => {
     //Arrange
     const receiverID = '2';
     const transferAmount = '150';
@@ -34,7 +36,7 @@ test.describe('Pulpit tests', () => {
     );
   });
 
-  test('Successful mobile top-up', async ({ page }) => {
+  test('Successful mobile top-up @pulpit @integration', async ({ page }) => {
     //Arange
     const topUpReceiver = '500 xxx xxx';
     const topUpAmount = '25';
@@ -49,7 +51,9 @@ test.describe('Pulpit tests', () => {
     );
   });
 
-  test('Correct balance after successful mobile top-up', async ({ page }) => {
+  test('Correct balance after successful mobile top-up @pulpit @integration', async ({
+    page,
+  }) => {
     //Arange
     const topUpReceiver = '500 xxx xxx';
     const topUpAmount = '25';
