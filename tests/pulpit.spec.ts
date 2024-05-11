@@ -41,7 +41,7 @@ test.describe('Pulpit tests', () => {
     const expectedMessage = `Doładowanie wykonane! ${topUpAmount},00PLN na numer ${topUpReceiver}`;
 
     //Act
-    await pulpitPage.paymentTopup(topUpReceiver, topUpAmount);
+    await pulpitPage.executeMobileTopUp(topUpReceiver, topUpAmount);
 
     //Assert
     await expect(pulpitPage.pulpitTopUpExpectedMessage).toHaveText(
@@ -49,7 +49,7 @@ test.describe('Pulpit tests', () => {
     );
   });
 
-  test.only('Correct balance after successful mobile top-up', async ({ page }) => {
+  test('Correct balance after successful mobile top-up', async ({ page }) => {
     //Arange
     const topUpReceiver = '500 xxx xxx';
     const topUpAmount = '25';
@@ -57,7 +57,7 @@ test.describe('Pulpit tests', () => {
     const expectedBalance = Number(initialBalance) - Number(topUpAmount);
 
     //Act
-    await pulpitPage.correctBalance(topUpReceiver, topUpAmount);
+    await pulpitPage.executeMobileTopUp(topUpReceiver, topUpAmount);
 
     //Assert
     await expect(pulpitPage.pulpitMoneyValueMessage).toHaveText(

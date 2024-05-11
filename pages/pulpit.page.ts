@@ -4,8 +4,8 @@ import { SideMenuComponent } from '../components/side-menu.component';
 export class PulpitPage {
   constructor(private page: Page) {}
 
-  sideMenu = new SideMenuComponent(this.page)
-  
+  sideMenu = new SideMenuComponent(this.page);
+
   pulpitReceiverId = this.page.locator('#widget_1_transfer_receiver');
   pulpitTransferAmount = this.page.locator('#widget_1_transfer_amount');
   pulpitTransferTitle = this.page.locator('#widget_1_transfer_title');
@@ -18,7 +18,6 @@ export class PulpitPage {
     name: 'doładuj telefon',
   });
   pulpitCloseUpButton = this.page.getByTestId('close-button');
-  
 
   pulpitExpectedTitleReceiver = this.page.locator('#show_messages');
   pulpitTopUpExpectedMessage = this.page.locator('#show_messages');
@@ -26,7 +25,11 @@ export class PulpitPage {
 
   pulpitUserName = this.page.getByTestId('user-name');
 
-  async properPayment(receiverID: string, transferAmount: string, transferTitle: string) {
+  async properPayment(
+    receiverID: string,
+    transferAmount: string,
+    transferTitle: string,
+  ): Promise<void> {
     await this.pulpitReceiverId.selectOption(receiverID);
     await this.pulpitTransferAmount.fill(transferAmount);
     await this.pulpitTransferTitle.fill(transferTitle);
@@ -34,7 +37,10 @@ export class PulpitPage {
     await this.pulpitClickCloseButton.click();
   }
 
-  async paymentTopup(topUpReceiver: string, topUpAmount: string) {
+  async executeMobileTopUp(
+    topUpReceiver: string,
+    topUpAmount: string,
+  ): Promise<void> {
     await this.pulpitTopUpReceiver.selectOption(topUpReceiver);
     await this.pulpitTopUpAmount.fill(topUpAmount);
     await this.pulpitTopUpAgreement.click();
@@ -42,11 +48,4 @@ export class PulpitPage {
     await this.pulpitCloseUpButton.click();
   }
 
-  async correctBalance(topUpReceiver:string, topUpAmount: string) {
-    await this.pulpitTopUpReceiver.selectOption(topUpReceiver);
-    await this.pulpitTopUpAmount.fill(topUpAmount);
-    await this.pulpitTopUpAgreement.click();
-    await this.pulpitTopUpClickButton.click();
-    await this.pulpitCloseUpButton.click();
-  }
 }
